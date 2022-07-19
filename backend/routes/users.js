@@ -83,6 +83,7 @@ router.put('/:id',async (req, res)=> {
     res.send(user);
 })
 
+// login existing user
 router.post('/login', async (req,res) => {
     const user = await User.findOne({email: req.body.email})
     const secret = process.env.secret;
@@ -109,6 +110,7 @@ router.post('/login', async (req,res) => {
 })
 
 
+// register a new user
 router.post('/register', async (req,res)=>{
     let user = new User({
         name: req.body.name,
