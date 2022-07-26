@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, FlatList, TextInput, TouchableOpacity } from 'react-native';
-import fakeListingData from './fake-data-Listing';
+import fakeListingData from '../fake-data-Listing';
 import ListingItem from './ListingItem';
 import color from '../Palette';
 
@@ -9,20 +9,20 @@ function ListingPage(props) {
 const savedListingData = fakeListingData;
 const [listingData, setListingData] = useState(savedListingData);
 const [isAdmin, setIsAdmin] = useState(false);
-const [seachInput, setSeachInput] = useState('');
+const [searchInput, setSearchInput] = useState('');
 function adminDeleteItem(id){
   console.log(`delete item with id=${id}`);
   };
 
-function seachId(){
+function searchId(){
 
   // *** ADD SEARCH FUNCTION HERE ***
 
-  console.log(`search for ${seachInput}`)
+  console.log(`search for ${searchInput}`)
  
 }
-function seachIdHandler(id){
-  setSeachInput(id);
+function searchIdHandler(id){
+  setSearchInput(id);
 }
     return (
       <View>
@@ -32,8 +32,8 @@ function seachIdHandler(id){
           <Text>Put MAP here</Text>
        </View>
         <View style={{flexDirection: 'row'}}>
-          <TextInput  id="textInput" style={styles.input} placeholder='Search Post ID' onChangeText={seachIdHandler} />
-          <TouchableOpacity style={styles.searchButton} onPress={seachId}>
+          <TextInput  id="textInput" style={styles.input} placeholder='Search Post ID' onChangeText={searchIdHandler} />
+          <TouchableOpacity style={styles.searchButton} onPress={searchId}>
             <Text style={styles.textButton}>SEARCH</Text>
           </TouchableOpacity>
          

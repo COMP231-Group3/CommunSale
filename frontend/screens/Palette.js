@@ -3,6 +3,7 @@ export default {
     backgroundTag: '#78e3fd',
     backgroundItem: '#d1f5ff',
     backgroundButton: '#7d53de',
+    backgroundButtonDelete: '#b22222',
     textDescription: 'black',
     textDate: '#606060',
     textAddress: '#404040',

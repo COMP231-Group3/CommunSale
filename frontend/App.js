@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import ListingPage from './Listing/ListingPage';
-import color from './Palette';
+import ListingPage from './screens/Listing/ListingPage';
+import color from './screens/Palette';
 
 export default function App() {
   return (
