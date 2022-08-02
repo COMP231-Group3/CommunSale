@@ -111,5 +111,48 @@ subtitle: {
 }
   
 });
+
+import React, {useState} from 'react';
+import { Button } from '../Button';
+import axios from 'axios';
+
+class DataTable extends Component {
+
+    deleteUser(e) {
+        e.preventDefault()
+        var id = this.props.obj.id;
+
+        axios.post('http://localhost:4000/users/deleteUser', id)
+            .then((res) => {
+                alert('User Deleted')
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    render() {
+        return (
+            <tr>
+                <td>
+                    {this.props.obj.name}
+                </td>
+                <td>
+                    {this.props.obj.company}
+                </td>
+                <td>
+                            <Button onClick={() => this.deleteUser}
+                                className='btnsDelete'
+                                buttonStyle='btn--delete'
+                                buttonSize='btn--small'
+                                buttonColour='red'
+                            >
+                                DELETE
+                            </Button>
+                </td>
+            </tr>
+        );
+    }
+}
 export default ListingPage;
 
