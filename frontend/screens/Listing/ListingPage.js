@@ -112,23 +112,16 @@ subtitle: {
   
 });
 
-import React, {useState} from 'react';
-import { Button } from '../Button';
-import axios from 'axios';
+
+
+
 
 class DataTable extends Component {
 
     deleteUser(e) {
-        e.preventDefault()
-        var id = this.props.obj.id;
-
-        axios.post('http://localhost:4000/users/deleteUser', id)
-            .then((res) => {
-                alert('User Deleted')
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
+      function DeleteItem(id){
+        console.log(`delete item =${id}`);
+        };
     }
 
     render() {
@@ -141,13 +134,13 @@ class DataTable extends Component {
                     {this.props.obj.company}
                 </td>
                 <td>
-                            <Button onClick={() => this.deleteUser}
-                                className='btnsDelete'
-                                buttonStyle='btn--delete'
-                                buttonSize='btn--small'
-                                buttonColour='red'
-                            >
-                                DELETE
+
+ <Button onClick={() => this.DeleteItem}
+className='btnsDelete'
+buttonStyle='btn--delete'
+buttonSize='btn--small'
+buttonColour='red' >
+
                             </Button>
                 </td>
             </tr>
