@@ -111,5 +111,41 @@ subtitle: {
 }
   
 });
+
+
+
+
+
+class DataTable extends Component {
+
+    deleteUser(e) {
+      function DeleteItem(id){
+        console.log(`delete item =${id}`);
+        };
+    }
+
+    render() {
+        return (
+            <tr>
+                <td>
+                    {this.props.obj.name}
+                </td>
+                <td>
+                    {this.props.obj.company}
+                </td>
+                <td>
+
+ <Button onClick={() => this.DeleteItem}
+className='btnsDelete'
+buttonStyle='btn--delete'
+buttonSize='btn--small'
+buttonColour='red' >
+
+                            </Button>
+                </td>
+            </tr>
+        );
+    }
+}
 export default ListingPage;
 
