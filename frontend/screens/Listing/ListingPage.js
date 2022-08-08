@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Component} from 'react';
 import { StyleSheet, View, Text, FlatList, TextInput, TouchableOpacity } from 'react-native';
 import fakeListingData from '../fake-data-Listing';
 import ListingItem from './ListingItem';
@@ -107,7 +107,6 @@ subtitle: {
   marginTop: 12,
   marginLeft: 32,
   fontSize: 32,
-  fontWeight: 700,
 }
   
 });
