@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
-import { StyleSheet, View, Text, FlatList, TextInput, TouchableOpacity} from 'react-native';
+import { StyleSheet, View, Text, FlatList, TextInput, TouchableOpacity, Button, Platform} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import color from '../Palette';
 import tagList from '../fake-data-ListingTag';
 
@@ -9,6 +10,30 @@ function PostGarageSalePage(props) {
     const [tag2, setTag2] = useState('Select tag');
     const [tag3, setTag3] = useState('Select tag');
     const tags = tagList;
+
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('datetime');
+    const [show, setShow] = useState(false);
+
+const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    setShow(false);
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    if (Platform.OS === 'android') {
+      setShow(false);
+      // for iOS, add a button that closes the picker
+    }
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    setShow(true);
+  };
+
+
 
     function previewGarageSale(){
 
@@ -43,6 +68,19 @@ function PostGarageSalePage(props) {
                     {tags.map(tag => <Picker.Item label={tag} value={tag} />)}
                 </Picker>
                 <Text>ADD DATE PICKER HERE</Text>
+                <View>
+      <Button onPress={showDatepicker} title="Show date picker!" />
+      <Text>selected: {date.toLocaleString()}</Text>
+      {show && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode={mode}
+          is24Hour={true}
+          onChange={onChange}
+        />
+      )}
+    </View>
             </View>
             <View>
                 <TouchableOpacity style={styles.searchButton} onPress={previewGarageSale}>

@@ -1,5 +1,5 @@
 import React, {useState, Component} from 'react';
-import { StyleSheet, View, Text, FlatList, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, FlatList, TextInput, TouchableOpacity, SafeAreaView  } from 'react-native';
 import fakeListingData from '../fake-data-Listing';
 import ListingItem from './ListingItem';
 import color from '../Palette';
@@ -10,6 +10,11 @@ const savedListingData = fakeListingData;
 const [listingData, setListingData] = useState(savedListingData);
 const [isAdmin, setIsAdmin] = useState(false);
 const [searchInput, setSearchInput] = useState('');
+
+const renderItem = ({ itemData }) => (
+  <ListingItem key={itemData.item.listing_id} id={itemData.item.listing_id} listingData={itemData.item} deleteItemById={adminDeleteItem} />
+);
+
 function adminDeleteItem(id){
   console.log(`delete item with id=${id}`);
   };
@@ -40,14 +45,22 @@ function searchIdHandler(id){
         </View>
         <Text style={styles.subtitle}>Listings:</Text>
         <View style={styles.listingContainer}>
+       
         <FlatList
-          style={{ flex: 1,}}
+          style={{ flex: 1, width: '100%'}}
           data={listingData}
           keyExtractor={(item) => item.listing_id}
-          renderItem={(itemData) => (
-             <ListingItem id={itemData.item.listing_id} listingData={itemData.item} deleteItemById={adminDeleteItem} />
-          )}
+          renderItem={(itemData) => {
+            console.log(itemData.item.description)
+            return (
+             <View>
+              <Text>{itemData.item.description}</Text> 
+              <ListingItem key={itemData.item.listing_id} id={itemData.item.listing_id} listingData={itemData.item} deleteItemById={adminDeleteItem} />
+            </View>
+            );
+          }}
         />
+       
         </View>
         
       </View>
@@ -115,36 +128,36 @@ subtitle: {
 
 
 
-class DataTable extends Component {
+// class DataTable extends Component {
 
-    deleteUser(e) {
-      function DeleteItem(id){
-        console.log(`delete item =${id}`);
-        };
-    }
+//     deleteUser(e) {
+//       function DeleteItem(id){
+//         console.log(`delete item =${id}`);
+//         };
+//     }
 
-    render() {
-        return (
-            <tr>
-                <td>
-                    {this.props.obj.name}
-                </td>
-                <td>
-                    {this.props.obj.company}
-                </td>
-                <td>
+//     render() {
+//         return (
+//             <tr>
+//                 <td>
+//                     {this.props.obj.name}
+//                 </td>
+//                 <td>
+//                     {this.props.obj.company}
+//                 </td>
+//                 <td>
 
- <Button onClick={() => this.DeleteItem}
-className='btnsDelete'
-buttonStyle='btn--delete'
-buttonSize='btn--small'
-buttonColour='red' >
+//  <Button onClick={() => this.DeleteItem}
+// className='btnsDelete'
+// buttonStyle='btn--delete'
+// buttonSize='btn--small'
+// buttonColour='red' >
 
-                            </Button>
-                </td>
-            </tr>
-        );
-    }
-}
+//                             </Button>
+//                 </td>
+//             </tr>
+//         );
+//     }
+// }
 export default ListingPage;
 
