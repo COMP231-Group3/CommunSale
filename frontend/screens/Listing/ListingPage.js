@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, FlatList, TextInput, TouchableOpacity, SafeArea
 import fakeListingData from '../fake-data-Listing';
 import ListingItem from './ListingItem';
 import color from '../Palette';
+import MapScreen from '../Map/Map';
 
 function ListingPage(props) {
 
@@ -14,6 +15,13 @@ const [searchInput, setSearchInput] = useState('');
 const renderItem = ({ itemData }) => (
   <ListingItem key={itemData.item.listing_id} id={itemData.item.listing_id} listingData={itemData.item} deleteItemById={adminDeleteItem} />
 );
+
+let inputProps = {
+  lat: 43.67822330531455,
+  long: -79.40943317388638,
+  address: '1 Austin Terrace, Toronto, ON M5R 1X8',
+  description: 'Fancy Garage Sale'
+};
 
 function adminDeleteItem(id){
   console.log(`delete item with id=${id}`);
@@ -34,7 +42,7 @@ function searchIdHandler(id){
       
         <Text style={styles.subtitle}>Sales Nearby:</Text>
        <View style={styles.fakeMap}>
-          <Text>Put MAP here</Text>
+        <MapScreen {...inputProps} />
        </View>
         <View style={{flexDirection: 'row'}}>
           <TextInput  id="textInput" style={styles.input} placeholder='Search Post ID' onChangeText={searchIdHandler} />
@@ -110,7 +118,7 @@ const styles = StyleSheet.create({
 fakeMap: {
   backgroundColor: color.gray4,
   margin: 16,
-  width: '93%',
+  // width: '93%',
   height: 350,
   justifyContent: "center",
   alignItems: "center",
@@ -128,36 +136,36 @@ subtitle: {
 
 
 
-// class DataTable extends Component {
+class DataTable extends Component {
 
-//     deleteUser(e) {
-//       function DeleteItem(id){
-//         console.log(`delete item =${id}`);
-//         };
-//     }
+    deleteUser(e) {
+      function DeleteItem(id){
+        console.log(`delete item =${id}`);
+        };
+    }
 
-//     render() {
-//         return (
-//             <tr>
-//                 <td>
-//                     {this.props.obj.name}
-//                 </td>
-//                 <td>
-//                     {this.props.obj.company}
-//                 </td>
-//                 <td>
+    render() {
+        return (
+            <tr>
+                <td>
+                    {this.props.obj.name}
+                </td>
+                <td>
+                    {this.props.obj.company}
+                </td>
+                <td>
 
-//  <Button onClick={() => this.DeleteItem}
-// className='btnsDelete'
-// buttonStyle='btn--delete'
-// buttonSize='btn--small'
-// buttonColour='red' >
+ <Button onClick={() => this.DeleteItem}
+className='btnsDelete'
+buttonStyle='btn--delete'
+buttonSize='btn--small'
+buttonColour='red' >
 
-//                             </Button>
-//                 </td>
-//             </tr>
-//         );
-//     }
-// }
+                            </Button>
+                </td>
+            </tr>
+        );
+    }
+}
 export default ListingPage;
 

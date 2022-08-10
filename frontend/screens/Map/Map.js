@@ -1,40 +1,46 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import { useState } from 'react';
 
 import { mapStyle } from './mapStyle';
 
-export function MapScreen() {
+const MapScreen = (props) => {
+  const [mapRegion] = useState(props);
 
-  return (
-    <View style={styles.container}>
-      <MapView
-        customMapStyle={mapStyle}
-        provider={PROVIDER_GOOGLE}
-        style={styles.mapStyle}
-        initialRegion={{
-          latitude: 43.78422057,
-          longitude: -79.2332062,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421
-        }}
-        mapType="standard"
-      >
-        <Marker
+    return (
+      
+      <View style={styles.container}>
+
+        <MapView
+          customMapStyle={mapStyle}
+          provider={PROVIDER_GOOGLE}
+          style={styles.mapStyle}
+          initialRegion={{
+            latitude: mapRegion.lat,
+            longitude: mapRegion.long,
+            // latitudeDelta: 0.3922,
+            // longitudeDelta: 0.3421
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421
+          }}
+          mapType="standard"
+        >
+          <Marker
             draggable
             coordinate={{
-              latitude: 43.78422057,
-              longitude: -79.2332062,
+              latitude: mapRegion.lat,
+              longitude: mapRegion.long,
             }}
             onDragEnd={
               (e) => alert(JSON.stringify(e.nativeEvent.coordinate))
             }
-            title={'Campus Marker'}
-            description={'Centennial Collge, Progress'}
+            title={mapRegion.address}
+            description={mapRegion.description}
           />
-      </MapView>
-    </View>
-  );
+        </MapView>
+      </View>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -46,6 +52,8 @@ const styles = StyleSheet.create({
   },
   mapStyle: {
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    height: 350,
   },
 });
+
+export default MapScreen;

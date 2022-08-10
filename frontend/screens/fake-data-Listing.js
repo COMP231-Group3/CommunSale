@@ -21,6 +21,8 @@ export default [
         picture1_url: 'https://cloudfront-us-east-2.images.arcpublishing.com/reuters/VWSUUN5RLFMJVDRVNWBE44EJFE.jpg',
         picture2_url: 'https://media.wired.com/photos/6089d7b88edc04c16a2d0403/master/pass/Science_hotwheels_h_00000220635464.jpg',
         picture3_url: 'https://www.vancouverislandfreedaily.com/wp-content/uploads/2020/06/21752662_web1_200603-PQN-Summer-Garage-Sale--garagesale_1.jpg',
+        lat: 43.67822330531455, 
+        long: -79.40943317388638,
     },
     {
         listing_id : 2,
@@ -44,6 +46,8 @@ export default [
         picture1_url: 'https://thumbs.worthpoint.com/zoom/images1/360/0512/05/mayfair-edition-connoisseurs-teapot_360_ea5b21207087ee21538a3c4021bd9f76.jpg',
         picture2_url: 'https://ceramicartsnetwork.org/images/default-source/uploadedimages/wp-content/uploads/sites/6/2015/09/book-shelf-and-kitchen-julias-house-by-lucy-capeheart1.jpg?Status=Master&sfvrsn=4372fb7_0',
         picture3_url: 'https://media.wnyc.org/i/800/0/l/85/2019/03/books.jpg',
+        lat: 43.66789593736448, 
+        long: -79.39478783155715,
     },
     {
         listing_id : 3,
@@ -67,6 +71,8 @@ export default [
         picture1_url: 'https://media.wired.com/photos/5955cdbf5992c54331ac1ac4/master/pass/411246_10150834626845039_11937280038_11441801_350518093_o.jpg',
         picture2_url: 'https://www.jedinews.com/wp-content/uploads/2019/01/LEGO-Collection-Jan-19.jpg',
         picture3_url: 'https://i.cbc.ca/1.3366381.1450208479!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_940/radio-canada-costume-collection.jpg',
+        lat: 43.65268441003964, 
+        long: -79.38199484505212,
     },
     {
         listing_id : 4,
@@ -90,6 +96,8 @@ export default [
         picture1_url: 'https://www.guinnessworldrecords.com/Images/Largest-collection-of-Santa-Claus-memorabilia_tcm25-505586.jpg',
         picture2_url: 'https://www.telegraph.co.uk/multimedia/archive/03266/gnome_3266823b.jpg',
         picture3_url: 'https://i.pinimg.com/originals/76/c9/07/76c9074eccdbb4f48e4216060c8de71f.jpg',
+        lat: 43.65378478194927, 
+        long: -79.39247397388729,
     },
     {
         listing_id : 5,
@@ -113,5 +121,7 @@ export default [
         picture1_url: 'https://ak1.ostkcdn.com/wp-content/uploads/2017/09/Living-Room-Furniture-1.jpg',
         picture2_url: 'https://www.falgore.com/wp-content/uploads/2021/05/kitchen-utensils2.jpg',
         picture3_url: 'https://media2.phoenixnewtimes.com/phx/imager/u/magnum/11403401/sweet_basil_gourmetware-cooking-school-lauren-cusimano.jpg',
+        lat: 43.716408559255, 
+        long: -79.34003573155535,
     }
 ]
