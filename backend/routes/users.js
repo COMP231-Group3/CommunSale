@@ -133,6 +133,52 @@ router.post('/register', async (req,res)=>{
 })
 
 
+// Check user email validation
+
+import React, { Component } from 'react';
+
+import { View,Text,StyleSheet } from 'react-native';
+
+class RegistrationValidation extends Component {
+
+constructor(email) {
+
+this.state =  req.body.email;
+
+}
+
+validateEmail(email) {
+
+let val = /..s@"]+(\.[^<>()\[\]\\.,;:\s@"..)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+return val.test(email);
+
+}
+
+onSubmit() {
+
+if (this.validateEmail(this.state.email)) {
+
+    res.status(200).send('Email is Valid');
+
+} else {
+
+    return res.status(400).send('Email is invalid ');
+
+}
+
+}
+
+}
+
+
+export default RegistrationValidation
+
+
+
+
+
+
 router.delete('/:id', (req, res)=>{
     User.findByIdAndRemove(req.params.id).then(user =>{
         if(user) {
