@@ -11,10 +11,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* <Text>Open up App.js to start working on your application.</Text> */}
-      {/* <ListingPage /> */}
+      <ListingPage />
       {/* <PostGarageSalePage /> */}
 
-      <Profile />
+      {/* <Profile /> */}
       <StatusBar style="auto" />
     </View>
   );
