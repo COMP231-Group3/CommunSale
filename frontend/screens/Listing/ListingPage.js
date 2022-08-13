@@ -62,7 +62,6 @@ function searchIdHandler(id){
             console.log(itemData.item.description)
             return (
              <View>
-              <Text>{itemData.item.description}</Text> 
               <ListingItem key={itemData.item.listing_id} id={itemData.item.listing_id} listingData={itemData.item} deleteItemById={adminDeleteItem} />
             </View>
             );

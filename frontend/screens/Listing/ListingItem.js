@@ -48,7 +48,7 @@ function ListingItem(props) {
                     </View>
                     <View style={styles.buttonPosition}>
                         <Pressable style={styles.deleteButton} onPress={adminDeleteHandler}>
-                            <Text style={styles.textButton}>Delete</Text>
+                            <Text style={styles.textDeleteButton}>X</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -96,21 +96,22 @@ const styles = StyleSheet.create({
         margin: 6,
         height: 22,
         backgroundColor: color.backgroundTag,
-        borderRadius: 50,
+        borderRadius: 10,
 
     },
     listingTagText: {
-        marginRight: 10,
-        marginLeft: 10,
+        marginRight: 3,
+        marginLeft: 3,
         marginBottom: 4,
         marginTop: 2,
         color: color.textTag,
         fontSize: 10,
-        letterSpacing: 0.5,
+        letterSpacing: 0.25,
+        fontWeight: 'bold',
     },
     fakeImage: {
         backgroundColor: color.gray4,
-        width: 150,
+        width: 120,
         height: 130,
         justifyContent: "center",
         alignItems: "center",
@@ -120,8 +121,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: color.backgroundButtonDelete,
-        width: 70,
-        borderRadius: 4,
+        width: 20,
+        height: 20,
+        borderRadius: 50,
         shadowColor: color.shadow,
         shadowOffset: { width: -2, height: 4 },
         shadowOpacity: 0.2,
@@ -136,11 +138,17 @@ const styles = StyleSheet.create({
         letterSpacing: 0.25,
         color: 'white',
         margin: 5,
+    },    
+    textDeleteButton: {
+        fontSize: 12,
+        fontWeight: 'bold',
+        color: 'white',
+      
     },
     buttonPosition: {
         position: 'absolute',
-        right: 10,
-        padding: 10,
+        right: 14,
+        paddingLeft: 8,
 
     },
     textAddress: {
