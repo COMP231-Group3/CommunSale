@@ -38,7 +38,7 @@ function searchIdHandler(id){
   setSearchInput(id);
 }
     return (
-      <View>
+      <View style={styles.listingContainer}>
       
         <Text style={styles.subtitle}>Sales Nearby:</Text>
        <View style={styles.fakeMap}>
@@ -77,7 +77,8 @@ const styles = StyleSheet.create({
   listingContainer: {
     flex: 4,
     paddingTop: 35,
-    paddingHorizontal: 16,
+    width: "100%",
+    height: "100%",
   },
   listingItem: {
     margin: 8,

@@ -12,9 +12,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* <Text>Open up App.js to start working on your application.</Text> */}
-      {/* <ListingPage /> */}
+      <ListingPage />
       {/* <PostGarageSalePage /> */}
-      <PreviewPostGarageSalePage 
+      {/* <PreviewPostGarageSalePage 
         address= '770 Don Mills Rd., North York, ON M3C 1T3'
         description= 'All house for sale'
         listing_tag1= 'Furnitures'
@@ -35,7 +35,7 @@ export default function App() {
         picture3_url= 'https://media2.phoenixnewtimes.com/phx/imager/u/magnum/11403401/sweet_basil_gourmetware-cooking-school-lauren-cusimano.jpg'
         lat= {43.716408559255}
         long= {-79.34003573155535}
-      />
+      /> */}
       {/* <Profile /> */}
       <StatusBar style="auto" />
     </View>
