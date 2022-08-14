@@ -44,6 +44,7 @@ function searchIdHandler(id){
        <View style={styles.fakeMap}>
         <MapScreen {...inputProps} />
        </View>
+       {isAdmin && (
         <View style={{flexDirection: 'row'}}>
           <TextInput  id="textInput" style={styles.input} placeholder='Search Post ID' onChangeText={searchIdHandler} />
           <TouchableOpacity style={styles.searchButton} onPress={searchId}>
@@ -51,6 +52,8 @@ function searchIdHandler(id){
           </TouchableOpacity>
          
         </View>
+       )}
+       
         <Text style={styles.subtitle}>Listings:</Text>
         <View style={styles.listingContainer}>
        
@@ -62,7 +65,7 @@ function searchIdHandler(id){
             console.log(itemData.item.description)
             return (
              <View>
-              <ListingItem key={itemData.item.listing_id} id={itemData.item.listing_id} listingData={itemData.item} deleteItemById={adminDeleteItem} />
+              <ListingItem key={itemData.item.listing_id} id={itemData.item.listing_id} listingData={itemData.item} deleteItemById={adminDeleteItem} isAdmin={isAdmin} />
             </View>
             );
           }}

@@ -46,11 +46,16 @@ function ListingItem(props) {
                             <Text style={styles.listingTagText} >{props.listingData.listing_tag3}</Text>
                         </View>
                     </View>
-                    <View style={styles.buttonPosition}>
+                    { props.isAdmin && (
+                        <View style={styles.buttonPosition}>
                         <Pressable style={styles.deleteButton} onPress={adminDeleteHandler}>
                             <Text style={styles.textDeleteButton}>X</Text>
                         </Pressable>
                     </View>
+                    )
+
+                    }
+                  
                 </View>
             </View>
         </View>
