@@ -1,0 +1,8 @@
+import React from "react";
+import registrationForm from './registration_Form'
+
+export default function App() {
+    return (
+      <registrationForm/>
+    )
+  };
