@@ -110,6 +110,7 @@ function PostGarageSalePage(props) {
                 mode="time"
                 is24Hour={false}
                 onChange={onChangeDate2}
+                minuteInterval={10}
               />
             )}
           </View>
@@ -122,6 +123,8 @@ function PostGarageSalePage(props) {
                 value={newDate1.date}
                 mode='date'
                 onChange={onChangeDate1}
+                maximumDate={new Date(2023, 12, 31)}
+                minimumDate={new Date()}
               />
             )}
           </View>
