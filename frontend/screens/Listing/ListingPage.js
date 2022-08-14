@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, FlatList, TextInput, TouchableOpacity, SafeArea
 import fakeListingData from '../fake-data-Listing';
 import ListingItem from './ListingItem';
 import color from '../Palette';
-import MapScreen from '../Map/Map';
+import MapMultiMarker from '../Map/MapMultiMarkers';
 
 function ListingPage(props) {
 
@@ -15,13 +15,6 @@ const [searchInput, setSearchInput] = useState('');
 const renderItem = ({ itemData }) => (
   <ListingItem key={itemData.item.listing_id} id={itemData.item.listing_id} listingData={itemData.item} deleteItemById={adminDeleteItem} />
 );
-
-let inputProps = {
-  lat: 43.67822330531455,
-  long: -79.40943317388638,
-  address: '1 Austin Terrace, Toronto, ON M5R 1X8',
-  description: 'Fancy Garage Sale'
-};
 
 function adminDeleteItem(id){
   console.log(`delete item with id=${id}`);
@@ -42,7 +35,7 @@ function searchIdHandler(id){
       
         <Text style={styles.subtitle}>Sales Nearby:</Text>
        <View style={styles.fakeMap}>
-        <MapScreen {...inputProps} />
+        <MapMultiMarker />
        </View>
        {isAdmin && (
         <View style={{flexDirection: 'row'}}>

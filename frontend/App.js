@@ -6,8 +6,6 @@ import  PostGarageSalePage from './screens/Listing/PostGarageSalePage';
 import PreviewPostGarageSalePage from './screens/Listing/PreviewPostGarageSalePage';
 import color from './screens/Palette';
 
-import Profile from './profile/profile';
-
 export default function App() {
   return (
     <View style={styles.container}>
