@@ -1,6 +1,7 @@
 import React, {Component, useState} from 'react';
 import { StyleSheet, View, Text, FlatList, TextInput, TouchableOpacity, SafeAreaView, Image } from 'react-native';
 import formik from 'formik';
+import color from '../screens/Palette';
 {/*Need password validation function*/}
 
 export default function App() {
