@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { useState } from 'react';
 
-import { mapStyle } from './mapStyle';
+import { MapStyle } from './mapStyle';
 
 import fakeListingData from '../fake-data-Listing';
 
@@ -14,7 +14,7 @@ const MapMultiMarker = (props) => {
       <View style={styles.container}>
 
         <MapView
-          customMapStyle={mapStyle}
+          customMapStyle={MapStyle}
           provider={PROVIDER_GOOGLE}
           style={styles.mapStyle}
           initialRegion={{

@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { StyleSheet, View, Text, FlatList, TextInput, TouchableOpacity, Button, Platform, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import color from '../Palette';
 import tagList from '../fake-data-ListingTag';
+import Recaptcha from 'react-native-recaptcha-that-works';
+
 
 function PreviewPostGarageSalePage(props) {
 
+    const recaptcha = useRef();
+
+    const send = () => {
+        console.log('send!');
+        recaptcha.current.open();
+    }
+
+    const onVerify = token => {
+        console.log('success!', token);
+    }
+
+    const onExpire = () => {
+        console.warn('expired!');
+    }
 
     // address= '770 Don Mills Rd., North York, ON M3C 1T3'
     // description= 'All house for sale'
@@ -125,13 +141,23 @@ function PreviewPostGarageSalePage(props) {
 
                 </View>
             </View>
+            <View>
+            <Recaptcha
+                ref={recaptcha}
+                siteKey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                baseUrl="http://google.com"
+                onVerify={onVerify}
+                onExpire={onExpire}
+                size="normal"
+            />
+            </View>
             <View style={styles.buttonPosition}>
             <View style={styles.row}>
             <TouchableOpacity style={styles.editButton} >
                     <Text style={styles.textButton}>EDIT</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.createButton} >
-                    <Text style={styles.textButton}>CREATE</Text>
+                    <Text style={styles.textButton} onPress={send}>CREATE</Text>
                 </TouchableOpacity>
             </View>
              
